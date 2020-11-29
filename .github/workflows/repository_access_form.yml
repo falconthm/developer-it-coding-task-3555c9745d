@@ -6,6 +6,8 @@ name: Repository access request form and validation
 on:
   issues: 
     types: [opened]
+  pull_request:
+    types: [opened]
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
@@ -89,9 +91,7 @@ jobs:
               else
               echo
               fi
-              
-              # I attempted not insert a label validator
-              
+                            
       - uses: Naturalclar/issue-action@v2.0.2
         with:
           parameters: '[ {"labels": ["Awaiting Input"]} ]'
